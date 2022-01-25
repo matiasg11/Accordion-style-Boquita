@@ -3,12 +3,13 @@ window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogn
 
 const recognition = new SpeechRecognition();
 recognition.interimResults = true; //to put the results in the middle of hearing it.
-
+recognition.lang = 'es-AR';
 //it updates the paragraph and then creates a new one when stops hearing.
 
 let p = document.createElement('p');
 const words = document.querySelector('.words');
 words.appendChild(p);
+
 
 
 recognition.addEventListener('result', e => {
