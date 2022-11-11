@@ -5,10 +5,10 @@ const context = canvas.getContext('2d')
 canvas.width = window.innerWidth
 canvas.height = window.innerHeight
 
-context.strokeStyle = '#B0CA00'
+context.strokeStyle = '#B0CAAA'
 context.lineJoin = 'round'
 context.lineCap = 'round'
-context.lineWidth = 150;
+context.lineWidth = 100;
 
 let isDrawing = false;
 let lastX = 0;
@@ -39,7 +39,7 @@ function draw(e){
         hue = 0
     }
 
-    if(context.lineWidth >= 20 || context.lineWidth < 1){
+    if(context.lineWidth >= 100 || context.lineWidth <= 1){
         direction = !direction
     }
     if (direction){
@@ -49,11 +49,12 @@ function draw(e){
     }
 }
 
-canvas.addEventListener('mousemove', draw)
+
 canvas.addEventListener('mousedown', (e) => {
     isDrawing = true;
     [lastX, lastY] = [e.offsetX, e.offsetY]
 
 })
+canvas.addEventListener('mousemove', draw)
 canvas.addEventListener('mouseup', () => isDrawing = false)
 canvas.addEventListener('mouseout', () => isDrawing = false)
