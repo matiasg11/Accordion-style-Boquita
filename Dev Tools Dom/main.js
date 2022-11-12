@@ -42,6 +42,31 @@ dogs.forEach(dog => {
         console.log(`${dog.name} is ${7*dog.age} in human years.`)
     console.groupEnd(`${dog.name}`) //And closes with the same group name
 })
-// counting
+// counting: Counts how many times it is run
+console.count("Boca")
+console.count("Boca")
+console.count("Boca")
+console.count("Boca")
+console.count("Boca")
+console.count("Boca")
+console.count("Boca")
+console.count("Boca")
+console.count("Boca")
+console.count("Boca")
+console.count("Boca")
+console.count("Boca")
+console.count("Boca")
+console.count("Boca")
 
-// timing
+
+// timing Counts the time needed to do all the code between the start (time) and the end (timeEnd)
+console.time('fetching data');
+    fetch('https://api.github.com/users/wesbos')
+      .then(data => data.json())
+      .then(data => {
+        console.timeEnd('fetching data');
+        console.log(data);
+      });
+
+//Table: When you have an array of objects, it logs them in a table so it's easier to look
+console.table(dogs)
