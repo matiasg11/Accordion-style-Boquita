@@ -12,10 +12,10 @@ console.log('hello')
 console.log('Hello I am a %s string!', 'BOCAAAAA')
 // Styled: First put the %c in the string to log. Then, the second parameter is CSS rules for that log.
 console.log('%cIt is a text', "font-size: 40px; background:yellow; color:blue;")
-// warning!
-
-// Error :|
-
+// warning!: Warning message. Attention mark and yellow background
+console.warn('Oh oh, there is a problem')
+// Error :|: Error message. Red symbol and red background.
+console.error("Houston, we have a serious problem!")
 // Info
 
 // Testing
