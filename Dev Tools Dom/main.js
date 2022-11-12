@@ -32,8 +32,16 @@ console.clear();
 console.log(p) //p is the paragraph selected in the assertion bit.
 console.dir(p) //It gives you the dropdown list of all the properties and methods of the element.
 
-// Grouping together
-
+console.clear()
+// Grouping together: It groups logs under a same title. 
+dogs.forEach(dog => {
+    //console.groupCollapsed(`${dog.name}`)  Does the same but with the groups already collapsed
+    console.group(`${dog.name}`)  //starts with a group
+        console.log(`Hello, I am ${dog.name}`)
+        console.log(`${dog.name} is ${dog.age}`)
+        console.log(`${dog.name} is ${7*dog.age} in human years.`)
+    console.groupEnd(`${dog.name}`) //And closes with the same group name
+})
 // counting
 
 // timing
