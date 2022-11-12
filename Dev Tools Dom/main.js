@@ -16,10 +16,16 @@ console.log('%cIt is a text', "font-size: 40px; background:yellow; color:blue;")
 console.warn('Oh oh, there is a problem')
 // Error :|: Error message. Red symbol and red background.
 console.error("Houston, we have a serious problem!")
-// Info
+// Info: Blue info mark on the left margin.
+console.info("Boca nunca descendió. Es el único equipo de la primera división que no lo hizo.")
+// Testing: To compare. If it is wrong, it launches the error message. 
+//This is often used in Codewars to compare results with desired outputs.
+console.assert(1 === 1, "That is wrong!!")  //Returns nothing because it is true.
+console.assert(1 === 2, "That is wrong!!")  //Returns error message saying:main.js:24 Assertion failed: That is wrong!! (anonymous) @ main.js:24
 
-// Testing
 
+const p = document.querySelector('p');
+console.assert(p.classList.contains('BOCA', "Error Message."))
 // clearing
 
 // Viewing DOM Elements
