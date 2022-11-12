@@ -26,9 +26,11 @@ console.assert(1 === 2, "That is wrong!!")  //Returns error message saying:main.
 
 const p = document.querySelector('p');
 console.assert(p.classList.contains('BOCA', "Error Message."))
-// clearing
-
-// Viewing DOM Elements
+// clearing: Clears the console. 
+console.clear();
+// Viewing DOM Elements: dir is used to view the properties of the element in the DOM
+console.log(p) //p is the paragraph selected in the assertion bit.
+console.dir(p) //It gives you the dropdown list of all the properties and methods of the element.
 
 // Grouping together
 
