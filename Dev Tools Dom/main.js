@@ -6,12 +6,12 @@ function makeGreen() {
   p.style.fontSize = '100px';
 }
 
-// Regular
-console.log('hello')
-// Interpolated
+// Regular: Logs into the console
+console.log('hello')  
+// Interpolated: Concatenates the 2nd string in the place of the %s
 console.log('Hello I am a %s string!', 'BOCAAAAA')
-// Styled
-
+// Styled: First put the %c in the string to log. Then, the second parameter is CSS rules for that log.
+console.log('%cIt is a text', "font-size: 40px; background:yellow; color:blue;")
 // warning!
 
 // Error :|
