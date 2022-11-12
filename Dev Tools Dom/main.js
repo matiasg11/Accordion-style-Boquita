@@ -36,9 +36,9 @@ console.clear()
 // Grouping together: It groups logs under a same title. 
 dogs.forEach(dog => {
     //console.groupCollapsed(`${dog.name}`)  Does the same but with the groups already collapsed
-    console.group(`${dog.name}`)  //starts with a group
+    console.group(`${dog.name}`)  //starts with a group 
         console.log(`Hello, I am ${dog.name}`)
-        console.log(`${dog.name} is ${dog.age}`)
+        console.log(`${dog.name} is ${dog.age} years old`)
         console.log(`${dog.name} is ${7*dog.age} in human years.`)
     console.groupEnd(`${dog.name}`) //And closes with the same group name
 })
