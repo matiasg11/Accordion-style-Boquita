@@ -42,10 +42,26 @@ function updateButton(){
 }
 
 function skip(){
-    console.log(this.dataset.skip) //Because it is explicitly assigned in the data-skip value
+    console.log(`Skip: ${this.dataset.skip}`) //Because it is explicitly assigned in the data-skip value
     video.currentTime += parseFloat(this.dataset.skip)
     
 }
+
+function handleRangeUpdate(){ //It works for both volume and speed
+    video[this.name] = this.value
+    console.log(this.name, this.value)
+}
+
+function handleProgress(){
+    const percent = (video.currentTime/video.duration)*100
+    progressBar.style.flexBasis = `${percent}%`
+}
+
+
+function scrub(event){
+    console.log(e)
+}
+
 
 /*Hook up the event listeners*/
 
@@ -56,3 +72,11 @@ video.addEventListener('pause', updateButton)
 toggle.addEventListener('click', togglePlay)
 
 skipButtons.forEach(button => button.addEventListener('click', skip))
+
+ranges.forEach(range => range.addEventListener('change', handleRangeUpdate));
+ranges.forEach(range => range.addEventListener('mousemove', handleRangeUpdate));
+
+video.addEventListener('timeupdate', handleProgress)
+
+
+progress.addEventListener('click', scrub)
