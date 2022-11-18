@@ -21,7 +21,7 @@ const progress = player.querySelector('.progress')
 const progressBar = player.querySelector('.progress__filled')
 const toggle = player.querySelector('.toggle')
 const volume = player.querySelector('.volume')
-const skipButtons = player.querySelectorAll([data-skip])
+const skipButtons = player.querySelectorAll(['data-skip'])
 const ranges = player.querySelectorAll('.player__slider')
 /*Build the functions*/
 
@@ -33,6 +33,22 @@ function togglePlay(){
     }
 }
 
+function updateButton(){
+    const playPauseIcon = this.paused ? '►' : '❚ ❚'
+    toggle.textContent = playPauseIcon
+}
 
+function skip(){
+    console.log(this.dataset.skip) //Because it is explicitly assigned in the data-skip value
+    video.currentTime += this.dataset.skip
+}
 
 /*Hook up the event listeners*/
+
+video.addEventListener('click', togglePlay)
+video.addEventListener('play', updateButton)
+video.addEventListener('pause', updateButton)
+
+toggle.addEventListener('click', togglePlay)
+
+skipButtons.forEach(button => button.addEventListener('click', skip))
