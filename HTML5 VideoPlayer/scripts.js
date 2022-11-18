@@ -21,15 +21,18 @@ const progress = player.querySelector('.progress')
 const progressBar = player.querySelector('.progress__filled')
 const toggle = player.querySelector('.toggle')
 const volume = player.querySelector('.volume')
-const skipButtons = player.querySelectorAll(['data-skip'])
+const skipButtons = player.querySelectorAll('[data-skip]');
+
 const ranges = player.querySelectorAll('.player__slider')
 /*Build the functions*/
 
 function togglePlay(){
     if (video.paused){
         video.play();
+        console.log("Play")
     }else{
         video.pause()
+        console.log("Pause")
     }
 }
 
@@ -40,7 +43,8 @@ function updateButton(){
 
 function skip(){
     console.log(this.dataset.skip) //Because it is explicitly assigned in the data-skip value
-    video.currentTime += this.dataset.skip
+    video.currentTime += parseFloat(this.dataset.skip)
+    
 }
 
 /*Hook up the event listeners*/
