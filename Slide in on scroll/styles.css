@@ -36,6 +36,13 @@ html {
     margin-left: 20px;
   }
 
+/*The images are slightly moved to the left or the right
+with opacity 0 and slightly scaled down
+
+When the images are scrolled-in, 
+they have the class active and become visible */
+
+
   .slide-in {
     opacity: 0;
     transition: all .5s;
