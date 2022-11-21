@@ -13,7 +13,6 @@ function debounce(func, wait = 10, immediate = true) {
     };
   }
 
-
 const imagesSliding = document.querySelectorAll(".slide-in")
 
 function checkSlide(event){
