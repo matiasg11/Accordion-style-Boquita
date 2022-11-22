@@ -15,9 +15,10 @@ function sombra(evento){
         x = x+evento.target.offsetLeft
         y = y+evento.target.offsetTop
     }
-    const xWalk = (x/width*walk) - (walk/2)
-    const yWalk = (y/height*walk) - (walk/2)
+    const xWalk = Math.round((x/width*walk) - (walk/2))
+    const yWalk = Math.round((y/height*walk) - (walk/2))
     console.log(xWalk, yWalk)
+    text.style.textShadow = `${xWalk}px ${yWalk}px 0 rgba(200,200,0,0.5) , ${-xWalk}px ${-yWalk}px 0 rgba(0,50,200,0.5)`
 }
 
 boca.addEventListener('mousemove', sombra)
