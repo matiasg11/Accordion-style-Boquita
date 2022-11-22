@@ -8,12 +8,12 @@
     margin: 0;
   }
 
-  .hero {
+  .boca {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    color: black;
+    color: rgba(0, 9, 171, 0.652);
   }
 
   h1 {
