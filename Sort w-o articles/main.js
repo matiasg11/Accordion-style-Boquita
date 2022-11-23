@@ -5,15 +5,18 @@ function strip(band){
     return band.replace(/^(a |the |an )/i, "".trim())    
 }
 
-let sortedBands = bands.sort(function (a,b){
-    if(strip(a)>strip(b)){  
-    //Only using the strip function in the comparison 
-        return 1
-    }else{
-        return -1
-    }
-})
+// let sortedBands = bands.sort(function (a,b){
+//     if(strip(a)>strip(b)){  
+//     //Only using the strip function in the comparison 
+//         return 1
+//     }else{
+//         return -1
+//     }
+// })
+
+let sortedBands = bands.sort((a,b)=> strip(a)>strip(b) ? 1:-1 )
 
 document.querySelector('#bands').innerHTML = sortedBands.map(band =>`<li>${band}</li>`)
 
 console.log(sortedBands)
+
