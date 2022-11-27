@@ -3,13 +3,15 @@
   const itemsList = document.querySelector('.plates'); //List of plates
   const items = []; //Storing all the data in an array of objects
 
-  addItems.addEventListener('submit', addItem)
-
   function addItem(e){
     e.preventDefault(); //Prevents the refreshing of the page. 
-    const text = this.querySelector('[name=item]') //This is the form element and selects the field with the name "item"
+    const text = (this.querySelector('[name=item]')).value //This is the form element and selects the field with the name "item"
     const item = {
-        text: 'item name',
-        done: false,
+        text: text,
+        done: false
     }
+    console.log(item)
+    this.reset()
   }
+
+  addItems.addEventListener('submit', addItem)
