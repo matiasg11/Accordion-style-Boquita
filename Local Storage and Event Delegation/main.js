@@ -29,7 +29,16 @@
                     `
         }).join("")
   }
-
+  /*If I select all the inputs before populating the list, the inputs do not exist.
+  Ok, I move the populateList call up. But if I add a new element to the list, it doesn't 
+  have the event listeners attached to them. 
+  What actually exists before that is the ul where all the elements will be included. 
+  
+  This is EVENT DELEGATION!
+  */
+  function toggleDone(e){
+    const checkboxes = document.querySelectorAll('input')
+  }
   addItems.addEventListener('submit', addItem)
 
   populateList(items, itemsList)
