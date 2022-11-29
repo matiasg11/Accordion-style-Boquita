@@ -37,8 +37,16 @@
   This is EVENT DELEGATION!
   */
   function toggleDone(e){
-    const checkboxes = document.querySelectorAll('input')
+    if(!e.target.matches('input')){
+        return; //Do nothing if it is not an input.
+    }
+    const element = e.target;
+    const index = element.dataset.index;
+    items[index].done = !items[index].done
+    localStorage.setItem('items', JSON.stringify(items)); //Only can store strings in key value pairs
+    populateList(items,itemsList)
   }
   addItems.addEventListener('submit', addItem)
+  itemsList.addEventListener('click', toggleDone)
 
   populateList(items, itemsList)
