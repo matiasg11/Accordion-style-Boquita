@@ -1,7 +1,7 @@
 
   const addItems = document.querySelector('.add-items'); //Form Element
-  const itemsList = document.querySelector('.plates'); //List of plates
-  const items = JSON.parse(localStorage.getItem('items')) ||[]; //Storing all the data in an array of objects
+  const itemsList = document.querySelector('.items'); //List of plates
+  let items = JSON.parse(localStorage.getItem('items')) ||[]; //Storing all the data in an array of objects
 //This tries to parse the local storage but if it doesn't find anything it uses an empty array. 
 
   function addItem(e){
@@ -43,10 +43,33 @@
     const element = e.target;
     const index = element.dataset.index;
     items[index].done = !items[index].done
-    localStorage.setItem('items', JSON.stringify(items)); //Only can store strings in key value pairs
+    localStorage.setItem('items', JSON.stringify(items)); //The true value (selected or checked) will remain in local storage
     populateList(items,itemsList)
   }
+
+  /*TAREAS: BOTONES DE CLEAR ALL, CHECK ALL, UNCHECK ALL */
+
   addItems.addEventListener('submit', addItem)
   itemsList.addEventListener('click', toggleDone)
+
+  /*CLEAR ALL*/
+  function clearAll(e){
+    localStorage.clear()
+    items = []
+    window.location.reload()
+  }
+
+  let clearing = document.querySelector('#clear')
+  clearing.addEventListener('click', clearAll)
+
+  /*CHECK ALL*/
+  function checkAll(e){
+
+  }
+
+  /*UNCHECK ALL*/
+  function uncheckAll(e){
+    
+  }
 
   populateList(items, itemsList)
