@@ -64,12 +64,28 @@
 
   /*CHECK ALL*/
   function checkAll(e){
+    for (item of items){
+        item.done = true 
+    }
+    localStorage.setItem('items', JSON.stringify(items));
+    populateList(items, itemsList)
 
-  }
+  } 
+
+  let checking = document.querySelector('#check')
+  checking.addEventListener('click', checkAll)
 
   /*UNCHECK ALL*/
   function uncheckAll(e){
-    
+    for (item of items){
+        item.done = false 
+    }
+    localStorage.setItem('items', JSON.stringify(items));
+    populateList(items, itemsList)
   }
+  let unchecking = document.querySelector('#uncheck')
+  unchecking.addEventListener('click', uncheckAll)
+
+  /* */
 
   populateList(items, itemsList)
