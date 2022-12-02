@@ -29,8 +29,9 @@ function paintToCanvas(){
         ctx.drawImage(video, 0, 0, width, height)  //Take an image from the element video. Starting at 0,0 and ending at the position width, height.
         let pixels = ctx.getImageData(0,0,width,height); //Takes the pixels out
         // pixels = redEffect(pixels); //Applies redEffect
-        pixels = rgbSplit(pixels);
-        ctx.globalAlpha = 0.1
+        // pixels = rgbSplit(pixels);
+        // ctx.globalAlpha = 0.1
+        pixels = greenScreen(pixels)
 
         ctx.putImageData(pixels, 0,0) //Put the pixels back
     },50)
@@ -71,6 +72,33 @@ function rgbSplit(pixels){
     }
     return pixels;
 }
+
+function greenScreen(pixels) {
+    const levels = {};
+  
+    document.querySelectorAll('.rgb input').forEach((input) => {
+      levels[input.name] = input.value;
+    });
+  
+    for (i = 0; i < pixels.data.length; i = i + 4) {
+      red = pixels.data[i + 0];
+      green = pixels.data[i + 1];
+      blue = pixels.data[i + 2];
+      alpha = pixels.data[i + 3];
+  
+      if (red >= levels.rmin
+        && green >= levels.gmin
+        && blue >= levels.bmin
+        && red <= levels.rmax
+        && green <= levels.gmax
+        && blue <= levels.bmax) {
+        // take it out!
+        pixels.data[i + 3] = 0; //This is the alpha, it makes it totally transparent
+      }
+    }
+  
+    return pixels;
+  }
 
 getVideo()
 
