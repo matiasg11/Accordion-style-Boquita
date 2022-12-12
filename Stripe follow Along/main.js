@@ -11,9 +11,11 @@ function handleEnter() {
     //Must use arrow function because it binds the "this" to the element (li)
     //The value of "this" is inherited from the function
     //If I want to use a normal function, the "this" refers to the window object
-     setTimeout(() => {
-
-     })
+    setTimeout(() => this.classList.add('trigger-enter-active'),150)
+    //IMPORTANT: YOU CAN'T GO FROM OPACITY 0 TO 1 AND DISPLAY NONE TO OTHER IN THE SAME STEP
+    //What the function does instead is add 2 new classes
+    //One changes opacity and the other the display.
+    //This is how transitions work in angular and react
 
 }
 
