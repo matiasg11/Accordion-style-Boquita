@@ -17,10 +17,15 @@ function handleEnter() {
     //One changes opacity and the other the display.
     //This is how transitions work in angular and react
 
+    //Add the background behind it
+    background.classList.add('open')
+
 }
 
 function handleLeave() {
-
+    //Remove opacity and/or display
+    this.classList.remove('trigger-enter')
+    background.classList.remove('open')
     
 }
 
