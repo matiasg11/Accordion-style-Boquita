@@ -20,6 +20,19 @@ function handleEnter() {
     //Add the background behind it
     background.classList.add('open')
 
+    //Locate the place where the dropdown is and place it there
+    //It has to work only for the dropdown that we want and not all of them
+    const dropdown = this.querySelector('.dropdown')
+    const dropdownCoords = dropdown.getBoundingClientRect()
+    const navCoords = nav.getBoundingClientRect()
+    const coords = {
+        height: dropdownCoords.height,
+        width: dropdownCoords.width,
+    }
+
+    background.style.setProperty('width', `${coords.width}px`)
+    background.style.setProperty('height', `${coords.height}px`)
+
 }
 
 function handleLeave() {
