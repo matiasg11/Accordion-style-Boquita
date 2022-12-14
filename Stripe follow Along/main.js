@@ -25,14 +25,18 @@ function handleEnter() {
     const dropdown = this.querySelector('.dropdown')
     const dropdownCoords = dropdown.getBoundingClientRect()
     const navCoords = nav.getBoundingClientRect()
+
+    //Positions w/ offsets to be started from the initial position of the nav instead of (0,0)
     const coords = {
         height: dropdownCoords.height,
         width: dropdownCoords.width,
+        top: dropdownCoords.top - navCoords.top,
+        left: dropdownCoords.left - navCoords.left
     }
 
     background.style.setProperty('width', `${coords.width}px`)
     background.style.setProperty('height', `${coords.height}px`)
-
+    background.style.setProperty('transform', `translate(${coords.left}px, ${coords.top}px)`)
 }
 
 function handleLeave() {
